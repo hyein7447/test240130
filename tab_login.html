@@ -37,7 +37,9 @@
         const tab_contents = document.querySelectorAll('.tab_contents .tab_c')
         const login_btn = document.querySelector('#login')
         const error = document.querySelector('.error')
-        console.log(tab_title, tab_contents, login_btn, error)
+        const id_input = document.querySelector('#id')
+        const pa_input = document.querySelector('#pw')
+        console.log(tab_title, tab_contents, login_btn, error, id, pw)
 
         const hide = ()=>{for(let h of tab_contents){h.style.display = 'none'}}
         hide() //초기 내용 전체 숨김
@@ -51,6 +53,20 @@
             tab_contents[i].parentElement.classList.add('active') //클릭시 제목탭 active 활성화
             })
         })
-    </script>
+
+        login_btn.addEventListener('click',()=>{
+            if(pw.value == ''){
+                error.innerText = '비밀번호를 입력하세요'
+            }else if (id.value == ''){
+                error.innerText = '아이디를 입력하세요'
+            }
+            else{
+                alert('로그인 성공하였습니다')
+            }
+            if(pw.value =='' && id.value ==''){
+                error.innerHTML = '아이디와 비밀번호를 입력하세요'
+            }
+            })
+            </script>
 </body>
 </html>
